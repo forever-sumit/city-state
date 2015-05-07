@@ -136,11 +136,11 @@ module CS
     country = self.current_country
 
     # load the country file
-    if @cities[country].blank?
+    #if @cities[country].blank?
       cities_fn = File.join(FILES_FOLDER, "cities.#{country.to_s.downcase}")
       self.install(country) if ! File.exists? cities_fn
       @cities[country] = YAML::load_file(cities_fn).symbolize_keys
-    end
+    #end
 
     @cities[country][state.to_s.upcase.to_sym] || []
   end
